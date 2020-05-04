@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # get 'homes' => 'homes#show'
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :index]
 
   resources :homes, only: [:new, :create, :index, :show]
 end
