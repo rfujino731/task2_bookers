@@ -10,6 +10,27 @@
   </head>
 
   <body>
+    <ul>
+    <% if user_signed_in? %>
+        
+       <li class="">
+          <%= link_to 'home', edit_user_path(current_user.id) %>
+        </li>
+        <li class="">
+        <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
+        <%= link_to 'users', users_path %>
+        </li>
+    <% else %>
+        <li class="">
+            <%= link_to "sing_in", edit_user_path(@user) %>
+        </li>
+        <li class="">
+            <%= link_to "ログイン", edit_user_path(@user) %>
+        </li>
+      <% end %>
+      </ul>
+
+    <h1>applecation.htmlの確認</h1>
     <%= yield %>
   </body>
 </html>
