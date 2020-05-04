@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
-#ログインユーザーのみ下記アクションが実行できる。
-before_action :authenticate_user!
+
   def show
   	  @user = User.find(params[:id])
       @book = Book.new

@@ -14,7 +14,10 @@
     <% if user_signed_in? %>
         
        <li class="">
-          <%= link_to 'home', edit_user_path(current_user.id) %>
+
+          <!-- link_toのshowへのpathはshowと書かない
+          editの場合は、edit_user_pathになる -->
+          <%= link_to 'home', user_path(current_user.id) %>
         </li>
         <li class="">
         <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
@@ -22,6 +25,10 @@
         </li>
         <li class = "">
           <%= link_to 'books', books_path %>
+        </li>
+
+        <li class="">
+           <%= link_to "logout", destroy_user_session_path, method: :delete %>
         </li>
 
     <% else %>

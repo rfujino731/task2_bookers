@@ -17,4 +17,6 @@ class User < ApplicationRecord
 
   #画像投稿ができるようにするための記述
   attachment :profile_image
+
+  has_many :books, dependent: :destroy
 end
