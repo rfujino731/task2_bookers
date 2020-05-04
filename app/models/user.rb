@@ -15,4 +15,6 @@ class User < ApplicationRecord
   #   false
   # end
 
+  #画像投稿ができるようにするための記述
+  attachment :profile_image
 end
