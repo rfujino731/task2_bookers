@@ -1,0 +1,8 @@
+<h2>booksの詳細画面</h2>
+<br>
+<p class = "show">title:<%= @book.title %></p>
+<br>
+<p class = "show">body:<%= @book.body%></p>
+
+<P class = "show_link"><%=link_to "edit", edit_book_path(@book.id) %> | 
+<%=link_to "back", books_path %></P>

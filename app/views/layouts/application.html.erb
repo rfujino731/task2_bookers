@@ -18,8 +18,12 @@
         </li>
         <li class="">
         <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-        <%= link_to 'users', users_path %>
+          <%= link_to 'users', users_path %>
         </li>
+        <li class = "">
+          <%= link_to 'books', books_path %>
+        </li>
+
     <% else %>
         <li class="">
             <%= link_to "sing_in", edit_user_path(@user) %>

@@ -1,0 +1,25 @@
+<h1 class = "edit">Editing Book</h1>
+<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
+	<div class = "new_main">
+    <% if @book.errors.any? %>
+		<ul >
+			<% @book.errors.full_messages.each do |message| %>
+			<li class = "error_message">error:<%= message %></li>
+			<% end %>
+	    </ul>
+		<% end %>
+		</ul>
+	</div>
+	
+
+	<h4 class = "edit">title</h4>
+	<div class = "edit"><%= f.text_field :title %></div>
+
+	<h4 class = "edit">body</h4>
+	<div class = "edit"><%= f.text_area :body %></div>
+
+	<div class = "edit"><%= f.submit 'Update Book' %></div>
+<% end %>
+<p class = "edit">
+<%=link_to "show", book_path(@book.id) %> | <%=link_to "back", books_path %>
+</p>
