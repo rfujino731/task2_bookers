@@ -37,3 +37,15 @@
 		<br>
 		<%= f.submit 'Create Book' %>
 	<% end %>
+
+
+	<h3>自分が投稿したbook一覧</h3>
+	<% @books.each do |book| %>
+	<tr>
+		<th class = "books_table_date"><%= book.title %></th>
+		<th class = "books_table_date"><%= book.body %></th>
+		<th class = "books_table_link"><%=link_to "show", book_path(book.id) %></th>
+		<th class = "books_table_link"><%= link_to "edit",edit_book_path(book.id) %></th>
+	</tr>
+		
+	<% end %>

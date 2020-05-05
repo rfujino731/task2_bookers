@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length:{in: 2..20}
 
+  #画像投稿ができるようにするための記述
+  attachment :profile_image
+
+  has_many :books, dependent: :destroy
   
   def email_required?
     false
@@ -17,8 +21,5 @@ class User < ApplicationRecord
     false
   end
 
-  #画像投稿ができるようにするための記述
-  attachment :profile_image
-
-  has_many :books, dependent: :destroy
+  
 end
