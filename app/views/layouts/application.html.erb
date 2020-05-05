@@ -17,7 +17,7 @@
 
           <!-- link_toのshowへのpathはshowと書かない
           editの場合は、edit_user_pathになる -->
-          <%= link_to 'home', user_path(current_user.id) %>
+          <%= link_to 'home', homes_path %>
         </li>
         <li class="">
         <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
@@ -33,10 +33,14 @@
 
     <% else %>
         <li class="">
-            <%= link_to "sing_in", edit_user_path(@user) %>
+            <%= link_to 'home', homes_path %>
+        </li>
+
+        <li class="">
+            <%= link_to "sing up", new_user_registration_path %>
         </li>
         <li class="">
-            <%= link_to "ログイン", edit_user_path(@user) %>
+            <%= link_to "log in",  new_user_session_path %>
         </li>
       <% end %>
       </ul>

@@ -6,14 +6,16 @@ class User < ApplicationRecord
 
 
   validates :name, presence: true, length:{in: 2..20}
-  # def email_required?
-  #   false
-  # end
+
+  
+  def email_required?
+    false
+  end
 
 
-  # def email_changed?
-  #   false
-  # end
+  def email_changed?
+    false
+  end
 
   #画像投稿ができるようにするための記述
   attachment :profile_image
