@@ -2,9 +2,17 @@ class UsersController < ApplicationController
 
  before_action :authenticate_user!
   def show
-  	  @user = User.find(current_user.id)
-      @books = Book.all
-      @book = Book.new
+    @myuser = User.find(current_user.id)
+    @linkuser = User.find(params[:id])
+    if @myuser == @linkuser
+  	   @user = User.find(current_user.id)
+       @books = Book.where(user_id:@user)
+       @book = Book.new
+    else
+      @user = User.find(params[:id])
+       @books = Book.where(user_id:@user)
+       @book = Book.new
+    end
   end
 
   def edit
