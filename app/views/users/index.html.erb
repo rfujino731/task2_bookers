@@ -16,6 +16,7 @@
 
 <% @users.each do |user| %>
 <table>
+	<%= attachment_image_tag user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 	<tr>
 		<th>name</th>
 		<th>tintroduction</th>
