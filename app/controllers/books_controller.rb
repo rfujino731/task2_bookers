@@ -2,6 +2,8 @@ class BooksController < ApplicationController
 
 	def index
 		@books = Book.all
+		@book = Book.new
+		@user = User.find(current_user.id)
 	end
 
 	def show
@@ -19,7 +21,8 @@ class BooksController < ApplicationController
 		   redirect_to(book_path(@book.id), notice:'book was successfully created')
 		 else
 		   @books = Book.all
-		   render :show
+		   @user = User.find(current_user.id)
+		   render :index
 		end
 	end
 
