@@ -9,7 +9,7 @@ class UsersController < ApplicationController
        @books = Book.where(user_id:@user)
        @book = Book.new
     else
-      @user = User.find(params[:id])
+       @user = User.find(params[:id])
        @books = Book.where(user_id:@user)
        @book = Book.new
     end

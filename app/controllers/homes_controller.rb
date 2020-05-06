@@ -8,10 +8,9 @@ class HomesController < ApplicationController
 	def index
 	end
 
-	def show
+	def about
 		
 	end
 
-	private
-  	
+	
 end

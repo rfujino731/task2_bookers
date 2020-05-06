@@ -7,8 +7,16 @@ class BooksController < ApplicationController
 	end
 
 	def show
+		@login_user_id = current_user.id
 		@book = Book.find(params[:id])
+
+		if @login_user == @book.user_id
+		   @user = User.find(@book.user_id)
+		else
+		   @user = User.find(@book.user_id)
+		end
 	end
+
 
 	def edit
 		@book = Book.find(params[:id])
@@ -22,7 +30,7 @@ class BooksController < ApplicationController
 		 else
 		   @books = Book.all
 		   @user = User.find(current_user.id)
-		   render :index
+		   render :show
 		end
 	end
 

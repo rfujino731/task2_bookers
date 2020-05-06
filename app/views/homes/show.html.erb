@@ -1,10 +1,12 @@
 <h2>homesのshow画面</h2>
-<p>
-<%= @user.name %>
-</p>
 
+<h3>homeページ確認</h3>
+<h4>views/homes/show</h4>
 <p>
-<%= @user.email %>
+<%= link_to "sing up", new_user_registration_path %><br>
+</p>
+<p>
+<%= link_to "log in",  new_user_session_path %>
 </p>
 
 

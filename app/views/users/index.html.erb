@@ -1,3 +1,10 @@
+<% if notice %>
+	<p><%= notice %></p>
+<% end %>
+<% if alert %>
+   <p><%= alert %></p>
+<% end %>
+
 <h2>user一覧画面</h2>
 
 <%= attachment_image_tag @user, :profile_image, size: "300x300", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root 'homes#index'
+  root 'homes#show' ,as: 'show_home' 
   devise_for :users
+
+  get "about" => "homes#about" , as: 'about_home'
+
   #ログイン後、一覧画面(index)に移動
   #deviseではログイン認証後、成功すれば、rootパスにリダイレクトされる
   
@@ -11,5 +14,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :index]
   resources :books, only: [:new, :create, :show, :edit, :update, :index, :destroy]
 
-  resources :homes, only: [:new, :create, :index, :show]
+  resources :homes
 end
