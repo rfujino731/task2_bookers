@@ -10,61 +10,61 @@
   </head>
 
   <body>
-
-  <header>
+  <header class = "navbar navbar-fixed-top navbar-inverse">
     <div class = "container">
-      <div class = "navbar navbar-expand-md navbar-dark bg-dark">
-        <span class = "header_title_bookers">Bookers</span>
+      <div class = "navbar navbar-nav navbar-left">
+        <span class = "header_title">Bookers</span>
+      </div>
       
 
         <nav>
-        <ul class = "header_nav">
+        <ul class = "nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-           <li class="header_navi_item">
-
+           <li>
               <!-- link_toのshowへのpathはshowと書かない
               editの場合は、edit_user_pathになる -->
-              <%= link_to 'home', user_path(current_user.id) %>
+              <%= link_to ' home', user_path(current_user.id),class:"glyphicon glyphicon-home home" %>
             </li>
-            <li class="header_item">
-            <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-              <%= link_to 'users', users_path %>
+            <li>
+              <%= link_to ' users', users_path, class:"glyphicon glyphicon-user users"%>
             </li>
-            <li class = "header_item">
-              <%= link_to 'books', books_path %>
+            <li>
+              <%= link_to ' books', books_path,  class:"glyphicon glyphicon-book books" %>
             </li>
 
-            <li class="header_item">
-               <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            <li>
+               <%= link_to " logout", destroy_user_session_path, method: :delete,  class:"glyphicon glyphicon-log-out logout" %>
             </li>
 
         <% else %>
       </nav>
         <nav>
-            <li class="">
-                <%= link_to "home", show_home_path %>
-            </li>
+            <ul class = "nav navbar-nav navbar-right">
+              <li>
+                <%= link_to " home", show_home_path, class:"glyphicon glyphicon-home home" %>
+              </li>
 
-            <li class="">
-                <%= link_to "about", about_home_path %>
-            </li>
+              <li>
+                <%= link_to " about", about_home_path, class:"glyphicon glyphicon-link abouts" %>
+              </li>
 
+              <li>
+                <%= link_to " sing up", new_user_registration_path, class:"glyphicon glyphicon-edit sign_up"  %>
+               </li>
             <li class="">
-                <%= link_to "sing up", new_user_registration_path %>
-            </li>
-            <li class="">
-                <%= link_to "log in",  new_user_session_path %>
+                <%= link_to " log in",  new_user_session_path, class:"glyphicon glyphicon-log-in sign-in"  %>
             </li>
           <% end %>
           </ul>
         </nav>
-    </div>
+    
   </div>
   </header>
-    </body>
+</body>
+<body>
 
     <%= yield %>
- 
+</body>
 <footer>
   <div class = "container">
     <div class = "row">
