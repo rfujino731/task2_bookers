@@ -34,11 +34,11 @@ class BooksController < ApplicationController
 		end
 	end
 
-	def destroy
-		book = Book.find(params[:id])
-		book.destroy
-		redirect_to :index, notice:'book was successfully deleted'
-	end
+	# def destroy
+	# 	@book = Book.find(params[:id])
+	# 	@book.destroy
+	# 	redirect_to :index, notice:'book was successfully deleted'
+	# end
 		
 
 	def update
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
 	def destroy
 		book = Book.find(params[:id])
 		book.destroy
-		redirect_to(books_path, notice:'book was successfully dekted')
+		redirect_to(books_path, notice:'book was successfully deleted')
 	end
 
 	private

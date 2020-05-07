@@ -28,13 +28,17 @@
 <!-- 投稿したbook一覧 -->
 </ul>
 <% @books.each do |book| %>
+    <% @users = User.find(book.user_id) %>
+	<%= attachment_image_tag @users, :profile_image, size: "50x50", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 	<tr>
-		<th class = "books_table_date"><%= book.title%><% link_to book_path(book.id)%></th>
-		<th class = "books_table_date"><%= book.body %></th>
-		<th class = "books_table_link"><%=link_to "show", book_path(book.id) %></th>
-		<th class = "books_table_link"><%= link_to "edit",edit_book_path(book.id) %></th>
-		
+		<th class = "">
+			<%= link_to book_path(book.id) do%>
+			<%= book.title%>
+			<% end %>
+			</th>
 
+		<th class = ""><%= book.body %></th>
+		<th class = ""><%=link_to "show", book_path(book.id) %></th>
 	</tr>
 		
 	<% end %>
