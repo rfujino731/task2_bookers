@@ -3,7 +3,7 @@ class Book < ApplicationRecord
 		presence: true
 
 	validates :body,
-		presence: true
+		presence: true, length:{maximum:20}
 
 	belongs_to :user
 

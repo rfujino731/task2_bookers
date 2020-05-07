@@ -30,7 +30,7 @@ class BooksController < ApplicationController
 		 else
 		   @books = Book.all
 		   @user = User.find(current_user.id)
-		   render :show
+		   render :index
 		end
 	end
 

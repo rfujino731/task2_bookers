@@ -5,12 +5,33 @@
    <p><%= alert %></p>
 <% end %>
 
-<h2>user一覧画面</h2>
-
 <%= attachment_image_tag @user, :profile_image, size: "300x300", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
 <p>name</p>
 <%= @user.name %>
 
+
+<p>introduction</p>
+<%= @user.introduction %>
+
+<% if @user.id == current_user.id %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+<% end %>
+
+<h2 class = "new_title">new book</h2>
+	<%= form_for(@book) do |f| %>
+
+		<h4>title</h4>
+		<%= f.text_field :title %>
+
+		<h4>body</h4>
+		<%= f.text_area :body %>
+
+		<br>
+		<%= f.submit 'Create Book' %>
+	<% end %>
+
+
+<h2>user一覧画面</h2>
 
 <p>introduction</p>
 <%= @user.introduction %>

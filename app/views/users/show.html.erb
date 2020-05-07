@@ -25,16 +25,6 @@
 <h2 class = "new_title">new book</h2>
 	<%= form_for(@book) do |f| %>
 
-		<ul>
-		<% if @book.errors.any? %>
-		<ul>
-			<% @book.errors.full_messages.each do |message| %>
-				<li class = "error_message">error:<%= message %></li>
-			<% end %>
-	    </ul>
-		<% end %>
-		</ul>
-
 		<h4>title</h4>
 		<%= f.text_field :title %>
 

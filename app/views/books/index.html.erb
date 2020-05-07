@@ -1,6 +1,14 @@
 
 <p><%= notice %></p>
-
+<ul>
+		<% if @book.errors.any? %>
+		<ul>
+			<% @book.errors.full_messages.each do |message| %>
+				<li class = "error_message">error:<%= message %></li>
+			<% end %>
+	    </ul>
+		<% end %>
+</ul>
 
 <h2>Books</h2>
 
@@ -17,6 +25,19 @@
 <% if @user.id == current_user.id %>
         <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 <% end %>
+
+<h2 class = "new_title">new book</h2>
+	<%= form_for(@book) do |f| %>
+
+		<h4>title</h4>
+		<%= f.text_field :title %>
+
+		<h4>body</h4>
+		<%= f.text_area :body %>
+
+		<br>
+		<%= f.submit 'Create Book' %>
+	<% end %>
 
 <!-- エラーメッセージの表示 -->
 <ul >
