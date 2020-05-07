@@ -37,41 +37,43 @@
 				<%= f.text_area :body %>
 
 				<br>
-				<%= f.submit 'Create Book' %>
+				<%= f.submit 'Create Book', class:"btn btn-primary btn-block"  %>
 			<% end %>
 	</div>
 
 	<div class = "col-lg-9">
 	<h3>users</h3>
-	<table class = "table">
-			<thead>
-				<tr>
-					<th>profileimage</th>
-					<th>name</th>
-					<th>intoduction</th>
-				</tr>
-			</thead>
+		<table class = "table">
+				<thead>
+					<tr>
+						<th>image</th>
+						<th>name</th>
+						<th></th>
+					</tr>
+				</thead>
 
-			<tbody>
-				<% @users.each do |user| %>
-				<tr>
-					<tb>
-					<%= attachment_image_tag user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-					</tb>
-					<tb><%= user.name %></tb>
-					<tb><%= user.introduction %></tb>
-					<tb><%=link_to "show", user_path(user.id) %></tb>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+				<tbody>
+					<% @users.each do |user| %>
+					<tr>
+						<td>
+							<%= attachment_image_tag user, :profile_image, size: "50x50", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+						</td>
+
+						<td><%= user.name %></tb></td>
+						<td><%=link_to "show", user_path(user.id) %></td>
+					</tr>
+					<% end %>
+				
+				</tbody>
+			</table>
 
 	</div>
 </div>
+</div>
+
 <!-- 
 	<%= @user.introduction %>
 
 	<% if @user.id == current_user.id %>
 	        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 	<% end %> -->
-</div>

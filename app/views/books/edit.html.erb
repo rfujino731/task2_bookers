@@ -1,3 +1,9 @@
+<div class = "container">
+	<div class = "col-lg-3">
+	</div>
+
+	<div class = "col-lg-6">
+
 <h1 class = "edit">Editing Book</h1>
 <%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
 	<div class = "new_main">
@@ -12,14 +18,21 @@
 	</div>
 	
 
-	<h4 class = "edit">title</h4>
-	<div class = "edit"><%= f.text_field :title %></div>
+	<h4 class = "edit">Title</h4>
+	<div><%= f.text_field :title,class:"form-control" %></div>
 
-	<h4 class = "edit">body</h4>
-	<div class = "edit"><%= f.text_area :body %></div>
-
-	<div class = "edit"><%= f.submit 'Update Book' %></div>
+	<h4 class = "edit">Opinion</h4>
+	<div><%= f.text_area :body,class:"form-control"  %></div>
+	<br>
+	<div class = "edit"><%= f.submit 'Update Book', class:"btn btn-primary btn-block"  %></div>
 <% end %>
 <p class = "edit">
 <%=link_to "show", book_path(@book.id) %> | <%=link_to "back", books_path %>
 </p>
+
+</div>
+
+<div class = "col-lg-3">
+</div>
+</div>
+

@@ -9,7 +9,7 @@ class BooksController < ApplicationController
 	def show
 		@login_user_id = current_user.id
 		@book = Book.find(params[:id])
-
+		@book_new = Book.new
 		if @login_user == @book.user_id
 		   @user = User.find(@book.user_id)
 		else
@@ -20,6 +20,7 @@ class BooksController < ApplicationController
 
 	def edit
 		@book = Book.find(params[:id])
+
 	end
 
 	def create

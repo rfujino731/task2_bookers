@@ -10,46 +10,70 @@
   </head>
 
   <body>
-    <ul>
-    <% if user_signed_in? %>
-        
-       <li class="">
 
-          <!-- link_toのshowへのpathはshowと書かない
-          editの場合は、edit_user_pathになる -->
-          <%= link_to 'home', user_path(current_user.id) %>
-        </li>
-        <li class="">
-        <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
-          <%= link_to 'users', users_path %>
-        </li>
-        <li class = "">
-          <%= link_to 'books', books_path %>
-        </li>
+  <header>
+    <div class = "container">
+      <div class = "navbar navbar-expand-md navbar-dark bg-dark">
+        <span class = "header_title_bookers">Bookers</span>
+      
 
-        <li class="">
-           <%= link_to "logout", destroy_user_session_path, method: :delete %>
-        </li>
+        <nav>
+        <ul class = "header_nav">
+        <% if user_signed_in? %>
+           <li class="header_navi_item">
 
-    <% else %>
-        <li class="">
-            <%= link_to "home", show_home_path %>
-        </li>
+              <!-- link_toのshowへのpathはshowと書かない
+              editの場合は、edit_user_pathになる -->
+              <%= link_to 'home', user_path(current_user.id) %>
+            </li>
+            <li class="header_item">
+            <!-- ↓以下のコードは、5章で正しいroutingに書き直します。 -->
+              <%= link_to 'users', users_path %>
+            </li>
+            <li class = "header_item">
+              <%= link_to 'books', books_path %>
+            </li>
 
-        <li class="">
-            <%= link_to "about", about_home_path %>
-        </li>
+            <li class="header_item">
+               <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </li>
 
-        <li class="">
-            <%= link_to "sing up", new_user_registration_path %>
-        </li>
-        <li class="">
-            <%= link_to "log in",  new_user_session_path %>
-        </li>
-      <% end %>
-      </ul>
+        <% else %>
+      </nav>
+        <nav>
+            <li class="">
+                <%= link_to "home", show_home_path %>
+            </li>
 
-    <h1>applecation.htmlの確認</h1>
+            <li class="">
+                <%= link_to "about", about_home_path %>
+            </li>
+
+            <li class="">
+                <%= link_to "sing up", new_user_registration_path %>
+            </li>
+            <li class="">
+                <%= link_to "log in",  new_user_session_path %>
+            </li>
+          <% end %>
+          </ul>
+        </nav>
+    </div>
+  </div>
+  </header>
+    </body>
+
     <%= yield %>
-  </body>
+ 
+<footer>
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-lg-9"></div>
+        <div class = "col-lg-3">
+          <p>CopyRight Intratop.inc</p>
+        </div>
+      </div>
+  </div>
+</footer>
 </html>
+
