@@ -1,4 +1,4 @@
-
+<div class = "container">
 <p><%= notice %></p>
 <ul>
 		<% if @book.errors.any? %>
@@ -10,56 +10,79 @@
 		<% end %>
 </ul>
 
-<h2>Books</h2>
+	<div class = "row">
+	<div class = "col-lg-3">
+			<h3>Userinfo</h3>
+			<div class = "profile_image">
+			<%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+		    </div>
+			
+			<table class = "table">
+				<tr>
+					<th>name</th>
+					<th><%= @user.name %></th>
+				</tr>
+				<tr>
+					<th>introduction</th>
+					<th><%= @user.introduction %></th>
+				</tr>
+			</table>
 
-<h3>booksのプロフィール画面確認</h3>
+			<% if @user.id == current_user.id %>
+			        <p><%= link_to "", edit_user_path(@user), class:"btn btn-default btn-lg btn-block"%>
+			        </p>
+			<% end %>
 
-<%= attachment_image_tag @user, :profile_image, size: "300x300", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-<p>name</p>
-<%= @user.name %>
+			<h2 class = "">new book</h2>
 
+			<%= form_for(@book) do |f| %>
 
-<p>introduction</p>
-<%= @user.introduction %>
+				<h4>title</h4>
+				<%= f.text_field :title %>
 
-<% if @user.id == current_user.id %>
-        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-<% end %>
+				<h4>body</h4>
+				<%= f.text_area :body %>
 
-<h2 class = "new_title">new book</h2>
-	<%= form_for(@book) do |f| %>
-
-		<h4>title</h4>
-		<%= f.text_field :title %>
-
-		<h4>body</h4>
-		<%= f.text_area :body %>
-
-		<br>
-		<%= f.submit 'Create Book' %>
-	<% end %>
+				<br>
+				<%= f.submit 'Create Book', class:"btn btn-primary btn-block" %>
+			<% end %>
+	</div>
 
 <!-- エラーメッセージの表示 -->
-<ul >
-	<% if @book.errors.any? %>
+	<!-- ul >
+		<% if @book.errors.any? %>
 			<% @book.errors.full_messages.each do |message| %>
 			<li class = "error_message">error:<%= message %></li>
 			<% end %>
-	<% end %>
+		<% end %> -->
 <!-- 投稿したbook一覧 -->
-</ul>
-<% @books.each do |book| %>
-    <% @users = User.find(book.user_id) %>
-	<%= attachment_image_tag @users, :profile_image, size: "50x50", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-	<tr>
-		<th class = "">
-			<%= link_to book_path(book.id) do%>
-			<%= book.title%>
-			<% end %>
-			</th>
+	</ul>
+	<div class = "col-lg-9">
+		<h3>Books</h3>
 
-		<th class = ""><%= book.body %></th>
-		<th class = ""><%=link_to "show", book_path(book.id) %></th>
-	</tr>
-		
-	<% end %>
+			<table class = "table">
+				<thead>
+					<tr>
+						<th>profileimage</th>
+						<th>title</th>
+						<th>opinion</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @books.each do |book| %>
+					<% @users = User.find(book.user_id) %>
+					<tr>
+						<td>
+							<%= attachment_image_tag @users, :profile_image, size: "50x50", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+						</td>
+
+						<td><%= link_to book.title, book_path(book.id) %></td>
+						<td><%= book.body %></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
+	</div>
+	</div>
+</div>

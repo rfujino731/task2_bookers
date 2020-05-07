@@ -1,20 +1,32 @@
-<h2>booksの詳細画面</h2>
+<div class = "container">
 
 <p><%= notice %></p>
 
-<h3>ユーザー情報が入る</h3>
-<%= attachment_image_tag @user, :profile_image, size: "300x300", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-<p>name</p>
-<%= @user.name %>
 
+<div class = "row">
+	<div class = "col-lg-3">
+		<h3>Userinfo</h3>
+			<div class = "profile-image">
+				<%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+			</div>
 
-<p>introduction</p>
-<%= @user.introduction %>
+			<table class = "table">
+				<tr>
+					<th>name</th>
+					<th><%= @user.name %></th>
+				</tr>
+				<tr>
+					<th>introduction</th>
+					<th><%= @user.introduction %></th>
+				</tr>
+			</table>
+	</div>
 
 <% if @user.id == current_user.id %>
         <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 <% end %>
 
+<div class = "col-lg-9">
 <br>
 <p class = "">title:<%= @book.title %></p>
 <br>
@@ -25,4 +37,8 @@
 	<%=link_to "edit", edit_book_path(@book.id) %> | 
     <%= link_to "delete", book_path(@book.id), method: :delete, data: {confirm: "Are you sure?" } %></p>
 <% end %>
+
+</div>
+</div>
+</div>
 
