@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_out_path_for(resource)
-		homes_path
+		show_home_path
 	end
 
   	protected
