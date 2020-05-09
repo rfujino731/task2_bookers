@@ -1,4 +1,13 @@
 <h2>User info</h2>
+<ul>
+		<% if @user.errors.any? %>
+		<ul>
+			<% @user.errors.full_messages.each do |message| %>
+				<li class = "error_message">error:<%= message %></li>
+			<% end %>
+	    </ul>
+		<% end %>
+</ul>
 
 
 <%= form_for(@user) do |f| %>
