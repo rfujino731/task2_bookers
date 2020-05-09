@@ -57,6 +57,7 @@ group :test do
   gem 'faker'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  # gem 'webdrivers', '~> 3.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

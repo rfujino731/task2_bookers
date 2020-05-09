@@ -22,13 +22,13 @@
             <li>
               <!-- link_toのshowへのpathはshowと書かない
               editの場合は、edit_user_pathになる -->
-                <%= link_to ' home', user_path(current_user.id),class:"glyphicon glyphicon-home home" %>
+                <%= link_to ' Home', user_path(current_user.id),class:"glyphicon glyphicon-home home" %>
               </li>
               <li>
-                <%= link_to ' users', users_path, class:"glyphicon glyphicon-user users"%>
+                <%= link_to ' Users', users_path, class:"glyphicon glyphicon-user users"%>
               </li>
               <li>
-                <%= link_to ' books', books_path,  class:"glyphicon glyphicon-book books" %>
+                <%= link_to ' Books', books_path,  class:"glyphicon glyphicon-book books" %>
             </li>
 
             <li>
@@ -38,11 +38,11 @@
           <% else %>
             <ul class = "nav navbar-nav navbar-right">
               <li>
-                <%= link_to " home", show_home_path, class:"glyphicon glyphicon-home home" %>
+                <%= link_to " Home", show_home_path, class:"glyphicon glyphicon-home home" %>
               </li>
 
               <li>
-                <%= link_to " about", about_home_path, class:"glyphicon glyphicon-link abouts" %>
+                <%= link_to " About", about_home_path, class:"glyphicon glyphicon-link abouts" %>
               </li>
 
               <li>
@@ -57,10 +57,12 @@
       </div>
     </nav>
   </header>
-<br>
-<br>
-<br>
-<%= yield %>
+  <main>
+    <br>
+    <br>
+    <br>
+    <%= yield %>
+  </main>
 
 <footer>
   <div class = "container">
