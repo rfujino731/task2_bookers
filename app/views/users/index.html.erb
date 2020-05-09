@@ -60,7 +60,7 @@
 						</td>
 
 						<td><%= user.name %></tb></td>
-						<td><%=link_to "show", user_path(user.id) %></td>
+						<td><%=link_to "Show", user_path(user.id) %></td>
 					</tr>
 					<% end %>
 				
@@ -70,10 +70,3 @@
 	</div>
 </div>
 </div>
-
-<!-- 
-	<%= @user.introduction %>
-
-	<% if @user.id == current_user.id %>
-	        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-	<% end %> -->

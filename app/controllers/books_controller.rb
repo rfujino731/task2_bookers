@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
 
+	before_action :authenticate_user!
+
 	def index
 		@books = Book.all
 		@book = Book.new
@@ -20,6 +22,11 @@ class BooksController < ApplicationController
 
 	def edit
 		@book = Book.find(params[:id])
+		if @book.user_id == current_user.id
+		   render :edit
+		else
+			redirect_to :show
+		end
 
 	end
 
@@ -35,11 +42,7 @@ class BooksController < ApplicationController
 		end
 	end
 
-	# def destroy
-	# 	@book = Book.find(params[:id])
-	# 	@book.destroy
-	# 	redirect_to :index, notice:'book was successfully deleted'
-	# end
+	
 		
 
 	def update
