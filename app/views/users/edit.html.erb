@@ -1,26 +1,37 @@
-<h2>User info</h2>
-<ul>
-		<% if @user.errors.any? %>
+<div class = "container">
+	<div class = "col-lg-1">
+	</div>
+
+	<div class = "col-lg-3">
+
+		<h2>User info</h2>
 		<ul>
-			<% @user.errors.full_messages.each do |message| %>
-				<li class = "error_message">error:<%= message %></li>
+			<% if @user.errors.any? %>
+			<ul>
+				<% @user.errors.full_messages.each do |message| %>
+					<li class = "error_message">error:<%= message %></li>
+				<% end %>
+			  </ul>
 			<% end %>
-	    </ul>
-		<% end %>
-</ul>
+		</ul>
+
+				<%= form_for(@user) do |f| %>
+					<p>name</p>
+					<%= f.text_field :name, autofocus: true %>
 
 
-<%= form_for(@user) do |f| %>
-	<p>name</p>
-	<%= f.text_field :name, autofocus: true %>
-	
+					<p>image(プロフィール画像)</p>
+					 <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
 
-	<p>image(プロフィール画像)</p>
-	 <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+					<p>introduction</p>
+					<%= f.text_area :introduction, autofocus: true  %>
+					<%= f.submit "Update User" %>
+				<% end %>
+			
 
-	<p>introduction</p>
-	<%= f.text_area :introduction, autofocus: true  %>
-	<%= f.submit "Update User" %>
+</div>
 
+<div class = "col-lg-8">
+</div>
+</div>
 
-<% end %>
