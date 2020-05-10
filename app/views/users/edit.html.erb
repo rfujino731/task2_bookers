@@ -5,7 +5,7 @@
 	<div class = "col-lg-3">
 
 		<h2>User info</h2>
-		<ul>
+		
 			<% if @user.errors.any? %>
 			<ul>
 				<% @user.errors.full_messages.each do |message| %>
@@ -13,7 +13,7 @@
 				<% end %>
 			  </ul>
 			<% end %>
-		</ul>
+		
 
 				<%= form_for(@user) do |f| %>
 					<p>name</p>
@@ -29,7 +29,7 @@
 				<% end %>
 			
 
-</div>
+	</div>
 
 <div class = "col-lg-8">
 </div>

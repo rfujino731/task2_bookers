@@ -29,7 +29,7 @@
 			</table>
 
 			<% if @user.id == current_user.id %>
-			        <p><%= link_to "", edit_user_path(@user), class:"btn btn-default btn-lg btn-block"%>
+			        <p><%= link_to "", edit_user_path(@user), class:"btn btn-default btn-lg btn-block glyphicon glyphicon-wrench"%>
 			        </p>
 			<% end %>
 
@@ -38,23 +38,17 @@
 			<%= form_for(@book) do |f| %>
 
 				<h4>title</h4>
-				<%= f.text_field :title %>
+				<%= f.text_field :title, class:"form-group form-control" %>
 
 				<h4>body</h4>
-				<%= f.text_area :body %>
+				<%= f.text_area :body, class:"form-group form-control" %>
 
 				<br>
 				<%= f.submit 'Create Book', class:"btn btn-primary btn-block" %>
 			<% end %>
 	</div>
 
-<!-- エラーメッセージの表示 -->
-	<!-- ul >
-		<% if @book.errors.any? %>
-			<% @book.errors.full_messages.each do |message| %>
-			<li class = "error_message">error:<%= message %></li>
-			<% end %>
-		<% end %> -->
+
 <!-- 投稿したbook一覧 -->
 	</ul>
 	<div class = "col-xs-9">
