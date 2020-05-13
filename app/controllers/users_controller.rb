@@ -2,16 +2,15 @@ class UsersController < ApplicationController
 
  before_action :authenticate_user!
   def show
+    @book = Book.new
     @myuser = User.find(current_user.id)
     @linkuser = User.find(params[:id])
     if @myuser == @linkuser
   	   @user = User.find(current_user.id)
        @books = Book.where(user_id:@user)
-       @book = Book.new
     else
        @user = User.find(params[:id])
        @books = Book.where(user_id:@user)
-       @book = Book.new
     end
   end
 
@@ -47,6 +46,7 @@ class UsersController < ApplicationController
          redirect_to(book_path(@book.id), notice:'book was successfully created')
       else
         @books = Book.all
+        @users = User.all
         @user = User.find(current_user.id)
         render "users/index"
       end
