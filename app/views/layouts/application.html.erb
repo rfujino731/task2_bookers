@@ -37,6 +37,10 @@
           </ul>
           <% else %>
             <ul class = "nav navbar-nav navbar-right">
+              <!--  リンクの書き方 正解root_path
+                ここで、show_homesを書いても同じ動きをするが、表示されるURLが指定のものと異なる
+              -->
+
               <li>
                 <%= link_to " Home", root_path, class:"glyphicon glyphicon-home home" %>
               </li>
