@@ -9,21 +9,15 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		@login_user_id = current_user.id
 		@book = Book.find(params[:id])
 		@book_new = Book.new
 		@user = User.find(@book.user_id)
-		# if @login_user == @book.user_id
-		#    @user = User.find(@book.user_id)
-		# else
-		#    @user = User.find(@book.user_id)
-		# end
 	end
 
 
 	def edit
-		# @login_user_id = current_user.id
 		@book = Book.find(params[:id])
+		# :id/editのurlではこの画面に遷移できないように条件分岐させる
 		if @book.user_id == current_user.id
 		  
 		else
@@ -44,8 +38,6 @@ class BooksController < ApplicationController
 		end
 	end
 
-	
-		
 
 	def update
 		@book = Book.find(params[:id])

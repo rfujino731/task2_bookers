@@ -4,31 +4,28 @@
 
 	<div class = "col-lg-6">
 
-<h1 class = "edit">Editing Book</h1>
-<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
-	<div class = "new_main">
+		<h1 class = "edit">Editing Book</h1>
+		<%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
+			<div class = "new_main">
 
-		<%= render 'layouts/erorr-messages-books', book:@book %>
+				<%= render 'layouts/erorr-messages-books', book:@book %>
 
-    	
+			</div>
+		<h4 class = "edit">Title</h4>
+		<div><%= f.text_field :title,class:"form-control" %></div>
+
+		<h4 class = "edit">Opinion</h4>
+			<div><%= f.text_area :body,class:"form-control"  %></div>
+				<br>
+			<div class = "edit"><%= f.submit 'Update Book', class:"btn btn-primary btn-block"  %></div>
+		<% end %>
+		<p class = "edit">
+		<%=link_to "Show", book_path(@book.id) %> | <%=link_to "Back", books_path %>
+		</p>
+
 	</div>
-	
 
-	<h4 class = "edit">Title</h4>
-	<div><%= f.text_field :title,class:"form-control" %></div>
-
-	<h4 class = "edit">Opinion</h4>
-	<div><%= f.text_area :body,class:"form-control"  %></div>
-	<br>
-	<div class = "edit"><%= f.submit 'Update Book', class:"btn btn-primary btn-block"  %></div>
-<% end %>
-<p class = "edit">
-<%=link_to "Show", book_path(@book.id) %> | <%=link_to "Back", books_path %>
-</p>
-
-</div>
-
-<div class = "col-lg-3">
-</div>
+	<div class = "col-lg-3">
+	</div>
 </div>
 

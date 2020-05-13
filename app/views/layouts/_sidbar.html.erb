@@ -1,35 +1,35 @@
-<h3>Userinfo</h3>
-			<div class = "profile_image">
-			<%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-		    </div>
-			
-			<table class = "table">
-				<tr>
-					<th>name</th>
-					<th><%= user.name %></th>
-				</tr>
-				<tr>
-					<th>introduction</th>
-					<th><%= user.introduction %></th>
-				</tr>
-			</table>
+<h3>User info</h3>
+	<div class = "profile_image">
+		<%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+	</div>
 
-			<% if @user.id == current_user.id %>
-			        <p><%= link_to "", edit_user_path(@user), class:"btn btn-default btn-lg btn-block glyphicon glyphicon-wrench"%>
-			        </p>
-			<% end %>
+	<table class = "table">
+		<tr>
+			<th>name</th>
+			<th><%= user.name %></th>
+		</tr>
+		<tr>
+			<th>introduction</th>
+			<th><%= user.introduction %></th>
+		</tr>
+		</table>
 
-			<h2 class = "">New book</h2>
+		<% if @user.id == current_user.id %>
+	        <p><%= link_to "", edit_user_path(@user), class:"btn btn-default btn-lg btn-block glyphicon glyphicon-wrench"%>
+		        </p>
+		<% end %>
 
-			<%= form_for(book) do |f| %>
+		<h2 class = "">New book</h2>
 
-				<h4>title</h4>
-				<%= f.text_field :title, class:"form-group form-control" %>
+		<%= form_for(book) do |f| %>
 
-				<h4>body</h4>
-				<%= f.text_area :body, class:"form-group form-control" %>
+			<h4>title</h4>
+			<%= f.text_field :title, class:"form-group form-control" %>
 
-				<br>
-				<%= f.submit 'Create Book', class:"btn btn-primary btn-block" %>
-			<% end %>
+			<h4>body</h4>
+			<%= f.text_area :body, class:"form-group form-control" %>
+
+			<br>
+			<%= f.submit 'Create Book', class:"btn btn-primary btn-block" %>
+		<% end %>
 	
