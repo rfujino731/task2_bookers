@@ -1,0 +1,25 @@
+<table class = "table">
+	<h3>Books</h3>
+	<thead>
+		<tr>
+			<th>profileimage</th>
+			<th>title</th>
+			<th>opinion</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% books.each do |book| %>
+		<% users = User.find(book.user_id) %>
+			<tr>
+				<td>
+					<%= link_to attachment_image_tag(users, :profile_image, size: "50x50", class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"), user_path(users) %>
+				</td>
+
+				<td><%= link_to book.title, book_path(book.id) %></td>
+				<td><%= book.body %></td>
+			</tr>
+		<% end %>
+	</tbody>
+
+</table>
